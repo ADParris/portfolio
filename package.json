@@ -1,0 +1,46 @@
+{
+	"name": "adparris",
+	"private": true,
+	"author": {
+		"name": "Andrew Parris",
+		"email": "andrew@adparris.com",
+		"url": "https://adparris.com"
+	},
+	"description": "Portfolio of Andrew Parris",
+	"version": "0.1.0",
+	"scripts": {
+		"build": "gatsby build",
+		"develop": "gatsby develop",
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+		"start": "npm run develop",
+		"serve": "gatsby serve",
+		"clean": "gatsby clean",
+		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+	},
+	"dependencies": {
+		"@chakra-ui/gatsby-plugin": "^2.0.1",
+		"@chakra-ui/react": "^1.6.6",
+		"@emotion/react": "^11.4.1",
+		"@emotion/styled": "^11.3.0",
+		"@fontsource/roboto": "^4.5.0",
+		"@fontsource/roboto-mono": "^4.5.0",
+		"framer-motion": "^4.1.17",
+		"gatsby": "^3.12.1",
+		"gatsby-plugin-image": "^1.13.0",
+		"gatsby-plugin-react-helmet": "^4.12.0",
+		"gatsby-plugin-sharp": "^3.13.0",
+		"gatsby-source-filesystem": "^3.13.0",
+		"gatsby-transformer-sharp": "^3.13.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-helmet": "^6.1.0",
+		"react-icons": "^4.2.0"
+	},
+	"devDependencies": {
+		"@types/react-helmet": "^6.1.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ADParris/portfolio"
+	}
+}
