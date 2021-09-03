@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Flex, Text } from '@chakra-ui/react';
-import { motion, Variants } from 'framer-motion';
+import { Flex, Text, usePrefersReducedMotion } from '@chakra-ui/react';
+import { motion, useAnimation, Variants } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import { Sizes } from '@data/constants';
 import { setSize } from '@utils';
@@ -43,14 +44,36 @@ export const SectionContainer: React.FC<IComponentProps> = ({
 		position: `relative`,
 	};
 
+	const animationController = useAnimation();
+	const { inView, ref: inViewRef } = useInView();
+	const prefersReducedMotion = usePrefersReducedMotion();
+
+	React.useEffect(() => {
+		if (inView) {
+			animationController.start({
+				opacity: 1,
+				transition: {
+					delay: 0.5,
+					duration: 1.5,
+				},
+				y: 0,
+			});
+		}
+	}, [inView, animationController]);
+
 	return (
 		<Flex
-			as="section"
+			animate={animationController}
+			as={motion.section}
+			exit={{ opacity: 0 }}
 			flexDir="column"
 			id={section.id}
+			initial={{ opacity: 0, y: prefersReducedMotion ? 0 : setSize(1) }}
 			minH={`calc(${Sizes.sectionHeight} - ${setSize(
-				Sizes.headerMaxHeight - 1.0
+				Sizes.headerMaxHeight + Sizes.gap
 			)})`}
+			mt={setSize(1.5)}
+			ref={inViewRef}
 			w="full"
 		>
 			<Flex

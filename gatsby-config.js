@@ -10,6 +10,35 @@ module.exports = {
 		`gatsby-plugin-image`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-sharp`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `assets`,
+				path: `${__dirname}/src/assets/`,
+			},
+		},
+		{
+			resolve: `gatsby-transformer-remark`,
+			options: {
+				plugins: [
+					{
+						resolve: `gatsby-remark-external-links`,
+						options: {
+							target: `_blank`,
+							rel: `nofollow noopener noreferrer`,
+						},
+					},
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							maxWidth: 450,
+							linkImagesToOriginal: true,
+							quality: 90,
+						},
+					},
+				],
+			},
+		},
 		`gatsby-transformer-sharp`,
 	],
 	siteMetadata: {

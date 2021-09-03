@@ -7,6 +7,7 @@ import { ISiteMetadata } from '@data/models';
 import {
 	AboutSection,
 	ContactSection,
+	ExperienceSection,
 	HeroSection,
 	Layout,
 } from '@components';
@@ -31,6 +32,7 @@ const HomePage: React.FC<IPageProps> = ({
 		>
 			<HeroSection name={author} />
 			<AboutSection />
+			<ExperienceSection />
 			<ContactSection />
 		</Layout>
 	);
