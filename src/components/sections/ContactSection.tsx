@@ -1,13 +1,15 @@
 import React from 'react';
 
 import { Button, Flex, Link, Text } from '@chakra-ui/react';
+
+import { Colors, Sizes } from '@data/constants';
+import { setSize, useScreenSizeCheck } from '@utils';
+
 import { SectionContainer } from './SectionContainer';
-import { setSize } from '../../utils';
-import { Colors, Sizes } from '../../data/constants';
 
-interface IComponentProps {}
+export const ContactSection: React.FC = () => {
+	const isLargeScreen = useScreenSizeCheck();
 
-export const ContactSection: React.FC<IComponentProps> = () => {
 	const variants = {
 		initial: {},
 		animate: {},
@@ -20,7 +22,7 @@ export const ContactSection: React.FC<IComponentProps> = () => {
 			variants={variants}
 		>
 			<Flex justifyContent="center">
-				<Flex flexDir="column" maxW="60%">
+				<Flex flexDir="column" maxW={isLargeScreen ? '60%' : '100%'}>
 					<Text my={setSize(Sizes.gap * 1.5)}>
 						Whether you have an opportunity that you wish to discuss with
 						me, have a question, or want to say hi, my inbox is always

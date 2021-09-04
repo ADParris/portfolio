@@ -48,8 +48,10 @@ export const NavLink: React.FC<IComponentProps> = ({
 			_hover={hover}
 			fontFamily="Roboto Mono"
 			fontWeight="normal"
+			fontSize="0.85em"
 			lineHeight={1}
-			m={setSize(Sizes.gap / 2)}
+			mr={setSize(Sizes.gap / 2)}
+			p={setSize(Sizes.gap / 2)}
 			onClick={handleClose}
 			textTransform="capitalize"
 		>

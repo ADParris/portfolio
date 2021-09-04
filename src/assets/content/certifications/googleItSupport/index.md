@@ -1,7 +1,7 @@
 ---
 id: 1
 image: './googleItSupport.jpg'
-title: 'Google IT Support'
+title: 'General Computers/Internet'
 ---
 
-I used this series of courses to make sure there were no gaps in my knowledge of computers and the internet in general. It's a great course, especially if you are new to IT. [Google IT Support](https://www.coursera.org/professional-certificates/google-it-support) courses on [Coursera](https://www.coursera.org/).
+I went through [Google IT Support](https://www.coursera.org/professional-certificates/google-it-support) to check that there were no gaps in my knowledge of computers and the internet in general. I already knew most of this content, but it's a great course if you are new to IT.

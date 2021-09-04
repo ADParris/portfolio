@@ -8,9 +8,7 @@ import { setSize, useScreenSizeCheck } from '@utils';
 import { SectionContainer } from './SectionContainer';
 import { Sizes } from '../../data/constants';
 
-interface IComponentProps {}
-
-export const AboutSection: React.FC<IComponentProps> = () => {
+export const AboutSection: React.FC = () => {
 	const isLargeScreen = useScreenSizeCheck();
 
 	const afterImage = {

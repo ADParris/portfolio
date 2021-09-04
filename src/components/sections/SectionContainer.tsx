@@ -69,10 +69,8 @@ export const SectionContainer: React.FC<IComponentProps> = ({
 			flexDir="column"
 			id={section.id}
 			initial={{ opacity: 0, y: prefersReducedMotion ? 0 : setSize(1) }}
-			minH={`calc(${Sizes.sectionHeight} - ${setSize(
-				Sizes.headerMaxHeight + Sizes.gap
-			)})`}
-			mt={setSize(1.5)}
+			minH="100vh"
+			mt={setSize(Sizes.headerHeight + Sizes.gap)}
 			ref={inViewRef}
 			w="full"
 		>

@@ -1,7 +1,7 @@
 ---
 id: 5
 image: './reactProficiency.png'
-title: 'React Proficiency Results'
+title: 'React Skills IQ Assessment'
 ---
 
-As a result of my learnings over the past few years, I took a React proficiency test over at [Pluralsight](https://www.pluralsight.com/) during one of their free trials. This image is a screenshot of the results of that test.
+Last year I took a React skills assessment on [Pluralsight](https://www.pluralsight.com/) during one of their free trials. This screenshot shows the results of that assessment. I have been continuing to learn and grow since then.

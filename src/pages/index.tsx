@@ -10,6 +10,7 @@ import {
 	ExperienceSection,
 	HeroSection,
 	Layout,
+	WorkSection,
 } from '@components';
 
 interface IPageProps {
@@ -22,21 +23,20 @@ const HomePage: React.FC<IPageProps> = ({
 			meta: { author, description, email, socials, title },
 		},
 	},
-}) => {
-	return (
-		<Layout
-			description={description}
-			email={email}
-			socials={socials}
-			title={`${title} | Home`}
-		>
-			<HeroSection name={author} />
-			<AboutSection />
-			<ExperienceSection />
-			<ContactSection />
-		</Layout>
-	);
-};
+}) => (
+	<Layout
+		description={description}
+		email={email}
+		socials={socials}
+		title={`${title} | Home`}
+	>
+		<HeroSection name={author} />
+		<AboutSection />
+		<ExperienceSection />
+		<WorkSection />
+		<ContactSection />
+	</Layout>
+);
 
 export const query = graphql`
 	{
