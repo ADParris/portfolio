@@ -4,7 +4,7 @@ import { Text, useColorModeValue } from '@chakra-ui/react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { Colors, Sizes } from '@data/constants';
-import { setSize } from '@utils';
+import { setSize, useHighlightColor } from '@utils';
 
 import { SectionContainer } from './SectionContainer';
 
@@ -13,7 +13,7 @@ interface IComponentProps {
 }
 
 export const HeroSection: React.FC<IComponentProps> = ({ name }) => {
-	const supTitleTextColor = useColorModeValue(`blue.600`, `blue.400`);
+	const { normalHighlightColor } = useHighlightColor();
 	const subTitleTextColor = useColorModeValue(
 		Colors.light.secondaryTextColor,
 		Colors.dark.secondaryTextColor
@@ -31,7 +31,7 @@ export const HeroSection: React.FC<IComponentProps> = ({ name }) => {
 
 	return (
 		<SectionContainer section={{ id: `top` }} variants={variants}>
-			<Text as={motion.p} color={supTitleTextColor} variants={variants}>
+			<Text as={motion.p} color={normalHighlightColor} variants={variants}>
 				Hi, my name is
 			</Text>
 			<Text
@@ -59,9 +59,8 @@ export const HeroSection: React.FC<IComponentProps> = ({ name }) => {
 				mt={setSize(Sizes.gap)}
 				variants={variants}
 			>
-				I'm a software engineer specializing in creating exceptional
-				experiences on the web. My current focus is looking for the right
-				company to begin my career.
+				I'm a self-taught software engineer looking for the right company
+				to begin my career, creating exceptional experiences on the web.
 			</Text>
 		</SectionContainer>
 	);

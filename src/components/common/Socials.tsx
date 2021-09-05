@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Flex, Icon, Link } from '@chakra-ui/react';
+import { Flex, Icon } from '@chakra-ui/react';
 import {
 	FiCodepen,
 	FiGithub,
@@ -9,9 +9,10 @@ import {
 	FiTwitter,
 } from 'react-icons/fi';
 
-import { animatedLinkHover } from '@data/constants';
 import { ISiteMetadataLink } from '@data/models';
 import { setSize } from '@utils';
+
+import { AnimatedLink } from '@components';
 
 interface IComponentProps {
 	isLargeScreen: boolean;
@@ -22,16 +23,16 @@ export const Socials: React.FC<IComponentProps> = ({
 	isLargeScreen,
 	socials,
 }) => {
-	const setIcon = (icon: string) =>
-		icon === `FiGithub`
+	const setIcon = (site: string) =>
+		site === `github`
 			? FiGithub
-			: icon === `FiInstagram`
+			: site === `instagram`
 			? FiInstagram
-			: icon === `FiTwitter`
+			: site === `twitter`
 			? FiTwitter
-			: icon === `FiLinkedin`
+			: site === `linkedin`
 			? FiLinkedin
-			: icon === `FiCodepen` && FiCodepen;
+			: site === `codepen` && FiCodepen;
 
 	return (
 		<Flex
@@ -41,19 +42,19 @@ export const Socials: React.FC<IComponentProps> = ({
 		>
 			{socials &&
 				socials.map(link => {
-					const icon = setIcon(link.icon);
+					const icon = setIcon(link.site);
 
 					return (
-						<Link
-							_hover={animatedLinkHover}
+						<AnimatedLink
+							aria-label={link.site}
 							href={link.url}
 							isExternal
-							key={link.icon}
+							key={link.site}
 							mb={isLargeScreen ? setSize(1) : 'initial'}
 							p={setSize(0.5)}
 						>
 							{icon && <Icon as={icon} display="flex" />}
-						</Link>
+						</AnimatedLink>
 					);
 				})}
 		</Flex>

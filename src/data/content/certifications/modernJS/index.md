@@ -1,6 +1,7 @@
 ---
 id: 2
 image: './modernJS.jpg'
+section: 'experience'
 title: 'JavaScript'
 ---
 

@@ -5,7 +5,7 @@ import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 import { Sizes } from '@data/constants';
-import { setSize } from '@utils';
+import { setSize, useHighlightColor } from '@utils';
 
 interface IComponentProps {
 	heading?: string;
@@ -24,8 +24,10 @@ export const SectionContainer: React.FC<IComponentProps> = ({
 	section,
 	variants,
 }) => {
+	const { normalHighlightColor } = useHighlightColor();
+
 	const after = {
-		bgColor: `blue.400`,
+		bgColor: normalHighlightColor,
 		content: `''`,
 		display: `block`,
 		h: setSize(0.05),
@@ -35,7 +37,7 @@ export const SectionContainer: React.FC<IComponentProps> = ({
 		w: `full`,
 	};
 	const before = {
-		color: `blue.400`,
+		color: normalHighlightColor,
 		content: `'0${section!.count}.'`,
 		display: `block`,
 		fontFamily: `Roboto Mono`,

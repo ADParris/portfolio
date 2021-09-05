@@ -3,7 +3,7 @@ import React from 'react';
 import { Flex, Icon, useColorModeValue } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { setSize } from '@utils';
+import { setSize, useHighlightColor } from '@utils';
 import { Colors } from '@data/constants';
 
 import { AnimatedSiteLogo } from './AnimatedSiteLogo';
@@ -21,6 +21,7 @@ export const Loader: React.FC<IComponentProps> = ({
 		Colors.light.bgColor,
 		Colors.dark.bgColor
 	);
+	const { normalHighlightColor } = useHighlightColor();
 
 	return (
 		<AnimatePresence>
@@ -28,6 +29,7 @@ export const Loader: React.FC<IComponentProps> = ({
 				alignItems="center"
 				as={motion.div}
 				bgColor={bgColor}
+				color={normalHighlightColor}
 				flex={1}
 				flexDir="column"
 				w="full"

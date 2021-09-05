@@ -10,15 +10,17 @@ import { customTheme, Sizes } from '@data/constants';
 import { ISiteMetadataLink } from '@data/models';
 import { setSize, useScreenSizeCheck } from '@utils';
 
+import { Head, Loader } from '@components';
+
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { Main } from './Main';
 import { Sides } from './Sides';
-import { Head, Loader } from '../common';
 
 interface IComponentProps {
 	description: string;
 	email: string;
+	isHome: boolean;
 	socials: ISiteMetadataLink[];
 	title: string;
 }
@@ -27,10 +29,13 @@ export const Layout: React.FC<IComponentProps> = ({
 	children,
 	description,
 	email,
+	isHome,
 	socials,
 	title,
 }) => {
-	const [animationComplete, setAnimationComplete] = React.useState(false);
+	const [animationComplete, setAnimationComplete] = React.useState(
+		!isHome
+	);
 	const isLargeScreen = useScreenSizeCheck();
 
 	const onAnimationComplete = () => setAnimationComplete(true);
@@ -57,7 +62,7 @@ export const Layout: React.FC<IComponentProps> = ({
 						exit={{ opacity: 0 }}
 						transition={{ ease: `easeIn` }}
 					>
-						{isLargeScreen && (
+						{isHome && isLargeScreen && (
 							<Sides isLargeScreen={isLargeScreen} socials={socials} />
 						)}
 						<Flex
@@ -68,9 +73,11 @@ export const Layout: React.FC<IComponentProps> = ({
 						>
 							<Header isLargeScreen={isLargeScreen} />
 							<Main>{children}</Main>
-							<Footer isLargeScreen={isLargeScreen} socials={socials} />
+							{isHome && (
+								<Footer isLargeScreen={isLargeScreen} socials={socials} />
+							)}
 						</Flex>
-						{isLargeScreen && (
+						{isHome && isLargeScreen && (
 							<Sides email={email} isLargeScreen={isLargeScreen} />
 						)}
 					</Flex>

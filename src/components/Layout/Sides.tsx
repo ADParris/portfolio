@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { Flex, Link, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 
-import { animatedLinkHover } from '@data/constants';
 import { ISiteMetadataLink } from '@data/models';
 import { setSize } from '@utils';
 
-import { Socials } from '@components';
+import { AnimatedLink, Socials } from '@components';
 
 interface IComponentProps {
 	email?: string;
@@ -31,8 +30,8 @@ export const Sides: React.FC<IComponentProps> = ({
 				<Socials isLargeScreen={isLargeScreen} socials={socials} />
 			)}
 			{email && (
-				<Link
-					_hover={animatedLinkHover}
+				<AnimatedLink
+					aria-label="email"
 					css={{ writingMode: `vertical-rl` }}
 					href={`mailto:${email}`}
 					mb={setSize(1)}
@@ -45,7 +44,7 @@ export const Sides: React.FC<IComponentProps> = ({
 					>
 						{email}
 					</Text>
-				</Link>
+				</AnimatedLink>
 			)}
 		</Flex>
 	);

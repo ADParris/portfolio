@@ -1,6 +1,7 @@
 ---
 id: 4
 image: './react.jpg'
+section: 'experience'
 title: 'React'
 ---
 

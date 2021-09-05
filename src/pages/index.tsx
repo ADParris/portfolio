@@ -15,6 +15,7 @@ import {
 
 interface IPageProps {
 	data: ISiteMetadata;
+	location: { pathname: string };
 }
 
 const HomePage: React.FC<IPageProps> = ({
@@ -23,10 +24,12 @@ const HomePage: React.FC<IPageProps> = ({
 			meta: { author, description, email, socials, title },
 		},
 	},
+	location: { pathname },
 }) => (
 	<Layout
 		description={description}
 		email={email}
+		isHome={pathname === `/`}
 		socials={socials}
 		title={`${title} | Home`}
 	>
@@ -47,7 +50,7 @@ export const query = graphql`
 				email
 				title
 				socials {
-					icon
+					site
 					url
 				}
 			}

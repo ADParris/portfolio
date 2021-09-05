@@ -1,5 +1,5 @@
 export interface ISiteMetadataLink {
-	icon: string;
+	site: string;
 	url: string;
 }
 

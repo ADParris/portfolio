@@ -1,6 +1,7 @@
 ---
 id: 1
 image: './googleItSupport.jpg'
+section: 'experience'
 title: 'General Computers/Internet'
 ---
 

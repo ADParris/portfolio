@@ -3,11 +3,13 @@ import React from 'react';
 import { Button, Flex, Link, Text } from '@chakra-ui/react';
 
 import { Colors, Sizes } from '@data/constants';
-import { setSize, useScreenSizeCheck } from '@utils';
+import { setSize, useHighlightColor, useScreenSizeCheck } from '@utils';
 
 import { SectionContainer } from './SectionContainer';
 
 export const ContactSection: React.FC = () => {
+	const { hoverHighlightColor, normalHighlightColor } =
+		useHighlightColor();
 	const isLargeScreen = useScreenSizeCheck();
 
 	const variants = {
@@ -32,12 +34,12 @@ export const ContactSection: React.FC = () => {
 					<Flex flex={1} justifyContent="center">
 						<Button
 							_hover={{
-								bgColor: `blue.600`,
+								bgColor: hoverHighlightColor,
 								color: Colors.dark.primaryTextColor,
 							}}
 							as={Link}
-							borderColor="blue.400"
-							color="blue.400"
+							borderColor={normalHighlightColor}
+							color={normalHighlightColor}
 							href="mailto:andrew@adparris.com"
 							variant="outline"
 							w="fit-content"

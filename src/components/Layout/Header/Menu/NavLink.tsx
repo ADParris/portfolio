@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, Text } from '@chakra-ui/react';
 
 import { Sizes } from '@data/constants';
-import { setSize } from '@utils';
+import { setSize, useHighlightColor } from '@utils';
 
 interface IComponentProps {
 	count: number;
@@ -16,8 +16,11 @@ export const NavLink: React.FC<IComponentProps> = ({
 	handleClose,
 	link,
 }) => {
+	const { hoverHighlightColor, normalHighlightColor } =
+		useHighlightColor();
+
 	const after = {
-		bgColor: `blue.600`,
+		bgColor: hoverHighlightColor,
 		bottom: `-0.37em`,
 		borderRadius: `3px`,
 		content: `''`,
@@ -29,7 +32,7 @@ export const NavLink: React.FC<IComponentProps> = ({
 	};
 
 	const before = {
-		color: `blue.400`,
+		color: normalHighlightColor,
 		content: `'0${count}.'`,
 		fontSize: `0.85em`,
 		mr: setSize(0.25),
@@ -46,6 +49,7 @@ export const NavLink: React.FC<IComponentProps> = ({
 			_after={after}
 			_before={before}
 			_hover={hover}
+			aria-label={link}
 			fontFamily="Roboto Mono"
 			fontWeight="normal"
 			fontSize="0.85em"

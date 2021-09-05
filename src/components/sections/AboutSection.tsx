@@ -3,10 +3,10 @@ import React from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import { StaticImage } from 'gatsby-plugin-image';
 
+import { Sizes } from '@data/constants';
 import { setSize, useScreenSizeCheck } from '@utils';
 
 import { SectionContainer } from './SectionContainer';
-import { Sizes } from '../../data/constants';
 
 export const AboutSection: React.FC = () => {
 	const isLargeScreen = useScreenSizeCheck();
@@ -41,7 +41,7 @@ export const AboutSection: React.FC = () => {
 					<StaticImage
 						alt="Andrew Parris"
 						height={300}
-						src="../../assets/images/me.jpg"
+						src="../../data/images/me.jpg"
 						width={300}
 					/>
 				</Flex>

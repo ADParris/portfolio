@@ -14,32 +14,30 @@ import {
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { Sizes } from '@data/constants';
-import { setSize } from '@utils';
+import { setSize, useBoxShadow, useHighlightColor } from '@utils';
 
 interface IComponentProps {
-	boxShadowColor: string;
 	image: IGatsbyImageData;
 	isLargeScreen: boolean;
 	leftAlignedImage: boolean;
 	title: string;
 }
 
-export const ImageView: React.FC<IComponentProps> = ({
-	boxShadowColor,
+export const ImageDisplay: React.FC<IComponentProps> = ({
 	image,
 	isLargeScreen,
 	leftAlignedImage,
 	title,
 }) => {
+	const { hoverBoxShadow, normalBoxShadow } = useBoxShadow();
+	const { normalHighlightColor } = useHighlightColor();
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
 		<Flex justifyContent={leftAlignedImage ? `flex-end` : `flex-start`}>
 			<Flex
-				_hover={{ boxShadow: `15px 15px 15px -5px ${boxShadowColor}` }}
-				boxShadow={
-					isLargeScreen ? `10px 10px 15px -5px ${boxShadowColor}` : `none`
-				}
+				_hover={{ boxShadow: hoverBoxShadow }}
+				boxShadow={isLargeScreen ? normalBoxShadow : `none`}
 				cursor="pointer"
 				maxW={isLargeScreen ? '49%' : '100%'}
 				onClick={onOpen}
@@ -51,7 +49,7 @@ export const ImageView: React.FC<IComponentProps> = ({
 
 			<Modal isOpen={isOpen} onClose={onClose}>
 				<ModalOverlay />
-				<ModalContent maxW={setSize(35)}>
+				<ModalContent maxW={setSize(50)}>
 					<ModalHeader
 						alignItems="center"
 						display="inline-flex"
@@ -59,6 +57,7 @@ export const ImageView: React.FC<IComponentProps> = ({
 						p={setSize(Sizes.gap / 1.5)}
 					>
 						<Text
+							color={normalHighlightColor}
 							fontFamily="Roboto Mono"
 							lineHeight={1.1}
 							pb={setSize(0.24)}

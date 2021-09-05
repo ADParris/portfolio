@@ -8,18 +8,6 @@ import { Sizes } from './sizes';
 
 const breakPoint = `@media only screen and (min-width: ${Sizes.breakPoint}px)`;
 
-const linkHover = {
-	...theme.components.Link.baseStyle._hover,
-	color: `blue.400`,
-	textDecoration: 'none',
-};
-
-export const animatedLinkHover = {
-	...linkHover,
-	transform: `translateY(-${setSize(0.15)})`,
-	transition: `all 0.25s cubic-bezier(0.645,0.045,0.355,1)`,
-};
-
 export const customTheme = extendTheme({
 	components: {
 		Button: {
@@ -44,13 +32,6 @@ export const customTheme = extendTheme({
 						bg: `whiteAlpha.200`,
 					},
 				}),
-				solid: props => ({
-					...theme.components.Button.variants.solid(props),
-					_hover: {
-						bg: `blue.400`,
-					},
-					bg: 'blue.600',
-				}),
 			},
 		},
 		Link: {
@@ -58,7 +39,9 @@ export const customTheme = extendTheme({
 				_focus: {
 					boxShadow: 'none',
 				},
-				_hover: linkHover,
+				_hover: {
+					textDecoration: `none`,
+				},
 			},
 		},
 		Text: {
@@ -79,8 +62,8 @@ export const customTheme = extendTheme({
 				},
 				'&::-webkit-scrollbar-thumb': {
 					bgColor: mode(
-						Colors.light.secondaryTextColor,
-						Colors.dark.secondaryTextColor
+						Colors.light.highlight.hover,
+						Colors.dark.highlight.normal
 					)(props),
 					borderRadius: setSize(Sizes.borderRadius),
 				},

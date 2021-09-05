@@ -1,49 +1,31 @@
 import React from 'react';
 
-import { Flex, useColorModeValue } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { getImage } from 'gatsby-plugin-image';
 
 import { Sizes } from '@data/constants';
-import { setSize, useScreenSizeCheck } from '@utils';
+import { IContentData } from '@data/models';
+import { setSize, useHighlightColor, useScreenSizeCheck } from '@utils';
 
-import { SectionContainer } from '../SectionContainer';
-import { ImageView } from './ImageView';
-import { DetailsView } from './DetailsView';
-import { TitleView } from './TitleView';
-
-interface IExperienceData {
-	experience: {
-		entries: {
-			frontmatter: {
-				id: number;
-				image: IGatsbyImageData;
-				title: string;
-			};
-			details: string;
-		}[];
-	};
-}
+import { DetailsDisplay, ImageDisplay, TitleDisplay } from '@components';
+import { SectionContainer } from './SectionContainer';
 
 export const ExperienceSection: React.FC = () => {
+	const { normalHighlightColor } = useHighlightColor();
 	const isLargeScreen = useScreenSizeCheck();
 
 	const after = {
-		bgColor: `blue.600`,
+		bgColor: normalHighlightColor,
 		content: `''`,
 		h: setSize(0.05),
 		m: `${setSize(Sizes.gap)} auto`,
 		w: `70%`,
 	};
 
-	const boxShadowColor = useColorModeValue(
-		`rgba(0, 0, 0, 0.4)`,
-		`rgba(255, 255, 255, 0.4)`
-	);
-
 	const {
-		experience: { entries },
-	}: IExperienceData = useStaticQuery(query);
+		data: { entries },
+	}: IContentData = useStaticQuery(query);
 
 	const variants = {
 		initial: {},
@@ -74,11 +56,10 @@ export const ExperienceSection: React.FC = () => {
 							position="relative"
 						>
 							{!isLargeScreen && (
-								<TitleView alignment="center" title={title} />
+								<TitleDisplay alignment="center" title={title} />
 							)}
 							<Flex flexDir="column">
-								<ImageView
-									boxShadowColor={boxShadowColor}
+								<ImageDisplay
 									image={image!}
 									isLargeScreen={isLargeScreen}
 									leftAlignedImage={leftAlignedImage}
@@ -94,15 +75,14 @@ export const ExperienceSection: React.FC = () => {
 									w={isLargeScreen ? '52%' : '100%'}
 								>
 									{isLargeScreen && (
-										<TitleView
+										<TitleDisplay
 											alignment={
 												leftAlignedImage ? `flex-start` : `flex-end`
 											}
 											title={title}
 										/>
 									)}
-									<DetailsView
-										boxShadowColor={boxShadowColor}
+									<DetailsDisplay
 										details={entry.details}
 										isLargeScreen={isLargeScreen}
 									/>
@@ -117,7 +97,8 @@ export const ExperienceSection: React.FC = () => {
 
 const query = graphql`
 	{
-		experience: allMarkdownRemark(
+		data: allMarkdownRemark(
+			filter: { frontmatter: { section: { eq: "experience" } } }
 			sort: { fields: frontmatter___id, order: ASC }
 		) {
 			entries: nodes {

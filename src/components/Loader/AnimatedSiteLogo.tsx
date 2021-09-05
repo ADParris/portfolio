@@ -30,11 +30,6 @@ export const AnimatedSiteLogo: React.FC<IComponentProps> = ({
 		},
 		exit: {
 			opacity: 0,
-			// transition: {
-			// 	delay: 1,
-			// 	duration: 3,
-			// 	ease: 'easeInOut',
-			// },
 		},
 	};
 	const textVariants = {

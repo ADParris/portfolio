@@ -1,22 +1,25 @@
 export const Colors = {
 	dark: {
-		bgColor: '#18191A',
-		surfaceColor: '#242526',
-		inputColor: '#3A3B3C',
-		primaryTextColor: '#E4E6EB',
+		bgColor: '#0A0F22',
+		boxShadow: `rgba(236, 236, 236, 0.3)`,
+		surfaceColor: '#1D2233',
+		highlight: {
+			hover: '#7FDBE4',
+			normal: '#56B2BB',
+		},
+		primaryTextColor: '#F9F0F0',
 		secondaryTextColor: '#B0B3B8',
 	},
 	gradient: 'linear(to-b, purple.600, purple.800)',
 	light: {
-		bgColor: '#F0F2FF',
-		surfaceColor: '#FFFFFF',
-		inputColor: '#F0F2FF',
-		primaryTextColor: '#050505',
+		bgColor: '#ECECEC',
+		boxShadow: `rgba(10, 15, 34, 0.3)`,
+		surfaceColor: '#FCFCFC',
+		highlight: {
+			hover: '#45A1AA',
+			normal: '#1c7881',
+		},
+		primaryTextColor: '#373737',
 		secondaryTextColor: '#65676B',
 	},
-	links: {
-		hover: 'purple.400',
-		normal: 'purple.600',
-	},
-	textShadow: '0rem 0.111rem 0.111rem #050505',
 };

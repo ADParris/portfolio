@@ -13,8 +13,8 @@ module.exports = {
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				name: `assets`,
-				path: `${__dirname}/src/assets/`,
+				name: `data`,
+				path: `${__dirname}/src/data/`,
 			},
 		},
 		{
@@ -24,15 +24,15 @@ module.exports = {
 					{
 						resolve: `gatsby-remark-external-links`,
 						options: {
-							target: `_blank`,
 							rel: `nofollow noopener noreferrer`,
+							target: `_blank`,
 						},
 					},
 					{
 						resolve: `gatsby-remark-images`,
 						options: {
-							maxWidth: 700,
 							linkImagesToOriginal: true,
+							maxWidth: 700,
 							quality: 90,
 						},
 					},
@@ -49,23 +49,23 @@ module.exports = {
 		repo: `https://github.com/ADParris/portfolio`,
 		socials: [
 			{
-				icon: `FiGithub`,
+				site: `github`,
 				url: `https://github.com/ADParris`,
 			},
 			{
-				icon: `FiInstagram`,
+				site: `instagram`,
 				url: `https://www.instagram.com/andrew.parris/`,
 			},
 			{
-				icon: `FiTwitter`,
+				site: `twitter`,
 				url: `https://twitter.com/ADParris`,
 			},
 			{
-				icon: `FiLinkedin`,
+				site: `linkedin`,
 				url: `https://www.linkedin.com/in/adparris/`,
 			},
 			{
-				icon: `FiCodepen`,
+				site: `codepen`,
 				url: `https://codepen.io/ADParris`,
 			},
 		],

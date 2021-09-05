@@ -10,7 +10,7 @@ import {
 import { motion, useAnimation } from 'framer-motion';
 
 import { Colors, Sizes } from '@data/constants';
-import { setSize } from '@utils';
+import { setSize, useHighlightColor } from '@utils';
 
 import { SiteLogo } from '@components';
 import { Menu } from './Menu';
@@ -28,6 +28,8 @@ export const Header: React.FC<IComponentProps> = ({ isLargeScreen }) => {
 		Colors.light.bgColor,
 		Colors.dark.bgColor
 	);
+	const { hoverHighlightColor, normalHighlightColor } =
+		useHighlightColor();
 	const prefersReducedMotion = usePrefersReducedMotion();
 
 	const handleScroll = () => setScrollYPos(window.pageYOffset);
@@ -80,7 +82,13 @@ export const Header: React.FC<IComponentProps> = ({ isLargeScreen }) => {
 				justifyContent="space-between"
 				px={setSize(2.5)}
 			>
-				<Link href="/" p={setSize(Sizes.gap / 2)}>
+				<Link
+					_hover={{ color: hoverHighlightColor }}
+					aria-label="home"
+					color={normalHighlightColor}
+					href="/"
+					p={setSize(Sizes.gap / 2)}
+				>
 					<Icon as={SiteLogo} h={setSize(1.25)} w={setSize(8)} />
 				</Link>
 				<Menu isLargeScreen={isLargeScreen} />

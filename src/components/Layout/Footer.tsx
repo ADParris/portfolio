@@ -63,7 +63,7 @@ export const Footer: React.FC<IComponentProps> = ({
 						fontSize="0.75em"
 						letterSpacing="-0.5px"
 					>
-						{`Designed & Built by ${author}`}
+						{`Built with 💖 by ${author}`}
 					</Text>
 				</Link>
 			</Flex>

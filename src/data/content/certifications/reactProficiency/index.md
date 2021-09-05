@@ -1,6 +1,7 @@
 ---
 id: 5
 image: './reactProficiency.png'
+section: 'experience'
 title: 'React Skills IQ Assessment'
 ---
 

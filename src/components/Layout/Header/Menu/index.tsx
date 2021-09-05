@@ -15,7 +15,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { FiMenu } from 'react-icons/fi';
 
 import { Sizes } from '@data/constants';
-import { setSize } from '@utils';
+import { setSize, useHighlightColor } from '@utils';
 
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { NavLink } from './NavLink';
@@ -26,12 +26,13 @@ interface IComponentProps {
 }
 
 export const Menu: React.FC<IComponentProps> = ({ isLargeScreen }) => {
+	const { isOpen, onOpen, onClose } = useDisclosure();
+	const { normalHighlightColor } = useHighlightColor();
 	const {
 		site: {
 			meta: { navLinks },
 		},
 	} = useStaticQuery(query);
-	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef<HTMLButtonElement>(null);
 
 	const _buildNavLinks = () =>
@@ -78,7 +79,12 @@ export const Menu: React.FC<IComponentProps> = ({ isLargeScreen }) => {
 						h={setSize(6)}
 						justifyContent="center"
 					>
-						<Icon as={SiteLogo} h={setSize(2)} w={setSize(10)} />
+						<Icon
+							as={SiteLogo}
+							color={normalHighlightColor}
+							h={setSize(2)}
+							w={setSize(10)}
+						/>
 					</Flex>
 
 					<Flex
