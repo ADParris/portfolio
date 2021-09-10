@@ -1,7 +1,10 @@
 ---
+additional: './note.md'
 id: 2
 imageDark: './mollys-place-dark.png'
 imageLight: './mollys-place-light.png'
+link: 'https://mollys-place.web.app'
+repo: 'https://github.com/ADParris/mollys-place'
 section: 'work'
 title: "Molly's Place"
 ---

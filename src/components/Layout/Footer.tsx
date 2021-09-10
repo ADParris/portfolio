@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Flex, Link, Text, useColorModeValue } from '@chakra-ui/react';
+import { Flex, Link, Text } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { Colors, Sizes } from '@data/constants';
+import { Sizes } from '@data/constants';
 import { ISiteMetadataLink } from '@data/models';
-import { setSize } from '@utils';
+import { setSize, useColors } from '@utils';
 
 import { Socials } from '../common';
 
@@ -24,10 +24,7 @@ export const Footer: React.FC<IComponentProps> = ({
 		},
 	} = useStaticQuery(query);
 
-	const textColor = useColorModeValue(
-		Colors.light.secondaryTextColor,
-		Colors.dark.secondaryTextColor
-	);
+	const { secondaryTextColor } = useColors();
 
 	return (
 		<Flex
@@ -42,7 +39,7 @@ export const Footer: React.FC<IComponentProps> = ({
 		>
 			<Flex
 				alignItems="center"
-				color={textColor}
+				color={secondaryTextColor}
 				flex={1}
 				flexDir={isLargeScreen ? 'initial' : 'column'}
 				justifyContent="center"

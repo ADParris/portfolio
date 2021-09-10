@@ -1,0 +1,1 @@
+By design, there is no sign-up system on this site. Once Molly approves someone, they are manually added to the site, as she didn't want just anyone on her site. The site is for her and whomever she selects, such as friends and family. Further, unauthenticated users can not view or participate in the comments section and can only see posts deemed as public.

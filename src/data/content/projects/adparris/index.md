@@ -2,6 +2,8 @@
 id: 1
 imageDark: './adparris-dark.png'
 imageLight: './adparris-light.png'
+link: 'https://adparris.com'
+repo: 'https://github.com/ADParris/portfolio'
 section: 'work'
 title: 'ADParris'
 ---

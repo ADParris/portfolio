@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Text, useColorModeValue } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-import { Colors, Sizes } from '@data/constants';
-import { setSize, useHighlightColor } from '@utils';
+import { Sizes } from '@data/constants';
+import { setSize, useColors } from '@utils';
 
 import { SectionContainer } from './SectionContainer';
 
@@ -13,11 +13,8 @@ interface IComponentProps {
 }
 
 export const HeroSection: React.FC<IComponentProps> = ({ name }) => {
-	const { normalHighlightColor } = useHighlightColor();
-	const subTitleTextColor = useColorModeValue(
-		Colors.light.secondaryTextColor,
-		Colors.dark.secondaryTextColor
-	);
+	const { normalHighlightColor, secondaryTextColor } = useColors();
+
 	const shouldReduceMotion = useReducedMotion();
 
 	const variants = {
@@ -45,7 +42,7 @@ export const HeroSection: React.FC<IComponentProps> = ({ name }) => {
 			</Text>
 			<Text
 				as={motion.p}
-				color={subTitleTextColor}
+				color={secondaryTextColor}
 				fontSize="clamp(20px, 10vw, 40px)"
 				fontWeight="bold"
 				lineHeight={1.2}

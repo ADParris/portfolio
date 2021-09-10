@@ -6,13 +6,13 @@ import { getImage } from 'gatsby-plugin-image';
 
 import { Sizes } from '@data/constants';
 import { IContentData } from '@data/models';
-import { setSize, useHighlightColor, useScreenSizeCheck } from '@utils';
+import { setSize, useColors, useScreenSizeCheck } from '@utils';
 
 import { DetailsDisplay, ImageDisplay, TitleDisplay } from '@components';
 import { SectionContainer } from './SectionContainer';
 
 export const ExperienceSection: React.FC = () => {
-	const { normalHighlightColor } = useHighlightColor();
+	const { normalHighlightColor } = useColors();
 	const isLargeScreen = useScreenSizeCheck();
 
 	const after = {

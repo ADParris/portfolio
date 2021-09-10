@@ -4,13 +4,12 @@ import {
 	Flex,
 	Icon,
 	Link,
-	useColorModeValue,
 	usePrefersReducedMotion,
 } from '@chakra-ui/react';
 import { motion, useAnimation } from 'framer-motion';
 
-import { Colors, Sizes } from '@data/constants';
-import { setSize, useHighlightColor } from '@utils';
+import { Sizes } from '@data/constants';
+import { setSize, useColors } from '@utils';
 
 import { SiteLogo } from '@components';
 import { Menu } from './Menu';
@@ -24,12 +23,8 @@ export const Header: React.FC<IComponentProps> = ({ isLargeScreen }) => {
 	const prevScrollYPos = React.useRef(0);
 
 	const animationController = useAnimation();
-	const bgColor = useColorModeValue(
-		Colors.light.bgColor,
-		Colors.dark.bgColor
-	);
-	const { hoverHighlightColor, normalHighlightColor } =
-		useHighlightColor();
+	const { bgColor, hoverHighlightColor, normalHighlightColor } =
+		useColors();
 	const prefersReducedMotion = usePrefersReducedMotion();
 
 	const handleScroll = () => setScrollYPos(window.pageYOffset);

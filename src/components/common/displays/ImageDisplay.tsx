@@ -14,7 +14,7 @@ import {
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { Sizes } from '@data/constants';
-import { setSize, useBoxShadow, useHighlightColor } from '@utils';
+import { setSize, useBoxShadow, useColors } from '@utils';
 
 interface IComponentProps {
 	image: IGatsbyImageData;
@@ -30,7 +30,7 @@ export const ImageDisplay: React.FC<IComponentProps> = ({
 	title,
 }) => {
 	const { hoverBoxShadow, normalBoxShadow } = useBoxShadow();
-	const { normalHighlightColor } = useHighlightColor();
+	const { normalHighlightColor } = useColors();
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (

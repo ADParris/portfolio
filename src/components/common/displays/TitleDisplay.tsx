@@ -3,7 +3,7 @@ import React from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 
 import { Sizes } from '@data/constants';
-import { setSize, useHighlightColor } from '@utils';
+import { setSize, useColors } from '@utils';
 
 interface IComponentProps {
 	alignment: string;
@@ -14,7 +14,7 @@ export const TitleDisplay: React.FC<IComponentProps> = ({
 	alignment,
 	title,
 }) => {
-	const { normalHighlightColor } = useHighlightColor();
+	const { normalHighlightColor } = useColors();
 
 	return (
 		<Flex as="title" justifyContent={alignment}>

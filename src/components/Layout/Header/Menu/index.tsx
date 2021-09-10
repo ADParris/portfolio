@@ -15,7 +15,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { FiMenu } from 'react-icons/fi';
 
 import { Sizes } from '@data/constants';
-import { setSize, useHighlightColor } from '@utils';
+import { setSize, useColors } from '@utils';
 
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { NavLink } from './NavLink';
@@ -27,7 +27,7 @@ interface IComponentProps {
 
 export const Menu: React.FC<IComponentProps> = ({ isLargeScreen }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-	const { normalHighlightColor } = useHighlightColor();
+	const { normalHighlightColor } = useColors();
 	const {
 		site: {
 			meta: { navLinks },

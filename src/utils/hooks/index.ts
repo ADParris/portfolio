@@ -1,3 +1,3 @@
 export * from './useBoxShadow';
-export * from './useHighlightColor';
+export * from './useColors';
 export * from './useScreenSizeCheck';

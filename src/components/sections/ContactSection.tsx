@@ -1,21 +1,23 @@
 import React from 'react';
 
-import { Button, Flex, Link, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 
-import { Colors, Sizes } from '@data/constants';
-import { setSize, useHighlightColor, useScreenSizeCheck } from '@utils';
+import { Sizes } from '@data/constants';
+import { setSize, useScreenSizeCheck } from '@utils';
 
+import { CustomButton } from '@components/common';
 import { SectionContainer } from './SectionContainer';
 
 export const ContactSection: React.FC = () => {
-	const { hoverHighlightColor, normalHighlightColor } =
-		useHighlightColor();
 	const isLargeScreen = useScreenSizeCheck();
 
 	const variants = {
 		initial: {},
 		animate: {},
 	};
+
+	const handleContactClick = () =>
+		window.open('mailto:andrew@adparris.com');
 
 	return (
 		<SectionContainer
@@ -32,20 +34,9 @@ export const ContactSection: React.FC = () => {
 						you!
 					</Text>
 					<Flex flex={1} justifyContent="center">
-						<Button
-							_hover={{
-								bgColor: hoverHighlightColor,
-								color: Colors.dark.primaryTextColor,
-							}}
-							as={Link}
-							borderColor={normalHighlightColor}
-							color={normalHighlightColor}
-							href="mailto:andrew@adparris.com"
-							variant="outline"
-							w="fit-content"
-						>
+						<CustomButton onClick={handleContactClick}>
 							<Text>Say Hello</Text>
-						</Button>
+						</CustomButton>
 					</Flex>
 				</Flex>
 			</Flex>

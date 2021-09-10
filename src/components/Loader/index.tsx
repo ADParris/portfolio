@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { Flex, Icon, useColorModeValue } from '@chakra-ui/react';
+import { Flex, Icon } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { setSize, useHighlightColor } from '@utils';
-import { Colors } from '@data/constants';
+import { setSize, useColors } from '@utils';
 
 import { AnimatedSiteLogo } from './AnimatedSiteLogo';
 
@@ -17,11 +16,7 @@ export const Loader: React.FC<IComponentProps> = ({
 	onAnimationComplete,
 	isLargeScreen,
 }) => {
-	const bgColor = useColorModeValue(
-		Colors.light.bgColor,
-		Colors.dark.bgColor
-	);
-	const { normalHighlightColor } = useHighlightColor();
+	const { bgColor, normalHighlightColor } = useColors();
 
 	return (
 		<AnimatePresence>

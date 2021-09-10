@@ -2,13 +2,13 @@ import React from 'react';
 
 import { Link, LinkProps } from '@chakra-ui/react';
 
-import { setSize, useHighlightColor } from '@utils';
+import { setSize, useColors } from '@utils';
 
 export const AnimatedLink: React.FC<LinkProps> = ({
 	children,
 	...linkProps
 }) => {
-	const { hoverHighlightColor } = useHighlightColor();
+	const { hoverHighlightColor } = useColors();
 
 	const _hover = {
 		color: hoverHighlightColor,

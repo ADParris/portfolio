@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Flex, Text, useColorModeValue } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
 
@@ -9,16 +9,21 @@ import { IContentData } from '@data/models';
 import {
 	setSize,
 	useBoxShadow,
-	useHighlightColor,
+	useColors,
 	useScreenSizeCheck,
 } from '@utils';
 
-import { DetailsDisplay, ImageDisplay, TitleDisplay } from '@components';
+import {
+	DetailsDisplay,
+	ImageDisplay,
+	LinksDisplay,
+	TitleDisplay,
+} from '@components';
 import { SectionContainer } from './SectionContainer';
 
 export const WorkSection: React.FC = () => {
 	const { normalBoxShadow } = useBoxShadow();
-	const { normalHighlightColor } = useHighlightColor();
+	const { normalHighlightColor, surfaceColor } = useColors();
 	const isLargeScreen = useScreenSizeCheck();
 
 	const after = {
@@ -29,16 +34,11 @@ export const WorkSection: React.FC = () => {
 		w: `70%`,
 	};
 
-	const bgColor = useColorModeValue(
-		Colors.light.surfaceColor,
-		Colors.dark.surfaceColor
-	);
-
 	const {
 		data: { entries },
 	}: IContentData = useStaticQuery(query);
 
-	const lightBg = bgColor === Colors.light.surfaceColor;
+	const lightBg = surfaceColor === Colors.light.surfaceColor;
 
 	const variants = {
 		initial: {},
@@ -58,7 +58,7 @@ export const WorkSection: React.FC = () => {
 				mt={setSize(Sizes.gap)}
 			>
 				<Flex
-					bgColor={isLargeScreen ? bgColor : `transparent`}
+					bgColor={isLargeScreen ? surfaceColor : `transparent`}
 					borderRadius={setSize(Sizes.borderRadius)}
 					boxShadow={isLargeScreen ? normalBoxShadow : `none`}
 					p={setSize(Sizes.gap)}
@@ -74,9 +74,24 @@ export const WorkSection: React.FC = () => {
 			</Flex>
 			{entries &&
 				entries.map(entry => {
-					const { id, imageDark, imageLight, title } = entry.frontmatter;
-					const leftAlignedImage = id % 2 !== 0;
+					const {
+						additional,
+						id,
+						imageDark,
+						imageLight,
+						link,
+						repo,
+						title,
+					} = entry.frontmatter;
+
 					const image = getImage(lightBg ? imageDark : imageLight);
+					const leftAlignedImage = id % 2 !== 0;
+					const linkAlignment = !isLargeScreen
+						? 'center'
+						: leftAlignedImage
+						? 'flex-end'
+						: 'flex-start';
+					const note = additional ? additional.info[0].note : null;
 
 					return (
 						<Flex
@@ -99,6 +114,13 @@ export const WorkSection: React.FC = () => {
 									leftAlignedImage={leftAlignedImage}
 									title={title}
 								/>
+								{(link || repo) && (
+									<LinksDisplay
+										alignment={linkAlignment}
+										link={link}
+										repo={repo}
+									/>
+								)}
 								<Flex
 									flexDir="column"
 									h={isLargeScreen ? 'initial' : '100%'}
@@ -119,6 +141,8 @@ export const WorkSection: React.FC = () => {
 									<DetailsDisplay
 										details={entry.details}
 										isLargeScreen={isLargeScreen}
+										note={note}
+										title={title}
 									/>
 								</Flex>
 							</Flex>
@@ -137,7 +161,11 @@ const query = graphql`
 		) {
 			entries: nodes {
 				frontmatter {
-					title
+					additional {
+						info: childrenMarkdownRemark {
+							note: rawMarkdownBody
+						}
+					}
 					id
 					imageDark {
 						childImageSharp {
@@ -149,6 +177,9 @@ const query = graphql`
 							gatsbyImageData(layout: FULL_WIDTH)
 						}
 					}
+					link
+					repo
+					title
 				}
 				details: html
 			}
