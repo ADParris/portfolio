@@ -24,7 +24,7 @@ export const Footer: React.FC<IComponentProps> = ({
 		},
 	} = useStaticQuery(query);
 
-	const { secondaryTextColor } = useColors();
+	const { hoverHighlightColor, secondaryTextColor } = useColors();
 
 	return (
 		<Flex
@@ -41,7 +41,7 @@ export const Footer: React.FC<IComponentProps> = ({
 				alignItems="center"
 				color={secondaryTextColor}
 				flex={1}
-				flexDir={isLargeScreen ? 'initial' : 'column'}
+				flexDir="column"
 				justifyContent="center"
 				maxW={setSize(Sizes.maxWidth)}
 				w="full"
@@ -55,6 +55,7 @@ export const Footer: React.FC<IComponentProps> = ({
 					mt={isLargeScreen ? 'initial' : setSize(0.5)}
 				>
 					<Text
+						_hover={{ color: hoverHighlightColor }}
 						css={{ wordSpacing: `-3px` }}
 						fontFamily="Roboto Mono"
 						fontSize="0.75em"
@@ -63,6 +64,21 @@ export const Footer: React.FC<IComponentProps> = ({
 						{`Built with 💖 by ${author}`}
 					</Text>
 				</Link>
+				<Text
+					css={{ wordSpacing: `-3px` }}
+					fontFamily="Roboto Mono"
+					fontSize="0.75em"
+					letterSpacing="-0.5px"
+				>
+					General layout idea by&nbsp;
+					<Link
+						_hover={{ color: hoverHighlightColor }}
+						href="https://brittanychiang.com/"
+					>
+						Brittany Chiang
+					</Link>
+					.
+				</Text>
 			</Flex>
 		</Flex>
 	);
