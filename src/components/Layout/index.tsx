@@ -1,5 +1,5 @@
-import '@fontsource/roboto';
-import '@fontsource/roboto-mono';
+import '@fontsource/nunito';
+import '@fontsource/gruppo';
 
 import React from 'react';
 

@@ -4,24 +4,39 @@ import { Flex, Text } from '@chakra-ui/react';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import { Sizes } from '@data/constants';
-import { setSize, useScreenSizeCheck } from '@utils';
+import { setSize, useColors, useScreenSizeCheck } from '@utils';
 
 import { SectionContainer } from './SectionContainer';
 
 export const AboutSection: React.FC = () => {
+	const { normalHighlightColor } = useColors();
 	const isLargeScreen = useScreenSizeCheck();
 
 	const afterImage = {
-		border: `2px solid`,
-		borderRadius: setSize(Sizes.borderRadius),
+		borderLeft: `2px solid`,
+		color: normalHighlightColor,
 		content: `''`,
 		display: `block`,
-		h: setSize(15),
+		h: setSize(13.5),
+		left: `-${setSize(0.5)}`,
 		position: `absolute`,
-		right: `-${setSize(0.75)}`,
 		top: setSize(0.75),
 		transition: `all 0.25s cubic-bezier(0.645,0.045,0.355,1)`,
 		w: setSize(15),
+		zIndex: -1,
+	};
+
+	const beforeImage = {
+		borderBottom: `2px solid`,
+		color: normalHighlightColor,
+		content: `''`,
+		display: `block`,
+		h: setSize(15),
+		left: `${setSize(0.75)}`,
+		position: `absolute`,
+		top: setSize(0.5),
+		transition: `all 0.25s cubic-bezier(0.645,0.045,0.355,1)`,
+		w: setSize(13.5),
 		zIndex: -1,
 	};
 
@@ -32,7 +47,8 @@ export const AboutSection: React.FC = () => {
 			mb={setSize(Sizes.gap * 1.5)}
 		>
 			<Flex
-				_after={afterImage}
+				_after={isLargeScreen ? afterImage : undefined}
+				_before={beforeImage}
 				h={setSize(15)}
 				position="relative"
 				w={setSize(15)}

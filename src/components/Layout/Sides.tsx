@@ -38,7 +38,9 @@ export const Sides: React.FC<IComponentProps> = ({
 					p={setSize(0.5)}
 				>
 					<Text
-						fontFamily="Roboto Mono"
+						fontFamily="Gruppo"
+						fontSize="x-large"
+						fontWeight="bold"
 						letterSpacing="0.5px"
 						lineHeight={1}
 					>

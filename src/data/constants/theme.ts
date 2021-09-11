@@ -72,7 +72,7 @@ export const customTheme = extendTheme({
 					Colors.light.primaryTextColor,
 					Colors.dark.primaryTextColor
 				)(props),
-				fontFamily: '"Roboto", sans-serif',
+				fontFamily: '"Nunito", sans-serif',
 			},
 			html: {
 				fontSize: 'var(--defaultFontSize)',

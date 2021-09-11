@@ -30,7 +30,7 @@ export const SectionContainer: React.FC<IComponentProps> = ({
 		bgColor: normalHighlightColor,
 		content: `''`,
 		display: `block`,
-		h: setSize(0.05),
+		h: setSize(0.025),
 		ml: setSize(0.5),
 		position: `relative`,
 		top: `-48%`,
@@ -40,9 +40,10 @@ export const SectionContainer: React.FC<IComponentProps> = ({
 		color: normalHighlightColor,
 		content: `'0${section!.count}.'`,
 		display: `block`,
-		fontFamily: `Roboto Mono`,
+		fontFamily: `Gruppo`,
 		fontSize: `0.85em`,
-		mr: `5px`,
+		mb: setSize(0.065),
+		mr: setSize(0.25),
 		position: `relative`,
 	};
 
@@ -95,7 +96,7 @@ export const SectionContainer: React.FC<IComponentProps> = ({
 							fontSize="1.5em"
 							fontWeight="bold"
 							lineHeight={0.75}
-							w={isLargeScreen ? '50%' : 'full'}
+							w="full"
 							whiteSpace="nowrap"
 						>
 							{heading}

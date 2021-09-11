@@ -56,20 +56,14 @@ export const Footer: React.FC<IComponentProps> = ({
 				>
 					<Text
 						_hover={{ color: hoverHighlightColor }}
-						css={{ wordSpacing: `-3px` }}
-						fontFamily="Roboto Mono"
-						fontSize="0.75em"
-						letterSpacing="-0.5px"
+						fontFamily="Gruppo"
+						fontSize="0.9em"
+						fontWeight="bold"
 					>
 						{`Built with 💖 by ${author}`}
 					</Text>
 				</Link>
-				<Text
-					css={{ wordSpacing: `-3px` }}
-					fontFamily="Roboto Mono"
-					fontSize="0.75em"
-					letterSpacing="-0.5px"
-				>
+				<Text fontFamily="Gruppo" fontSize="0.9em" fontWeight="bold">
 					General layout idea by&nbsp;
 					<Link
 						_hover={{ color: hoverHighlightColor }}

@@ -20,8 +20,9 @@ export const TitleDisplay: React.FC<IComponentProps> = ({
 		<Flex as="title" justifyContent={alignment}>
 			<Text
 				color={normalHighlightColor}
-				fontFamily="Roboto Mono"
-				fontSize="0.80em"
+				fontFamily="Gruppo"
+				fontSize="0.9em"
+				fontWeight="bold"
 				mb={setSize(Sizes.gap)}
 			>
 				{title}
