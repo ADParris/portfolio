@@ -57,7 +57,7 @@ export const AboutSection: React.FC = () => {
 					<StaticImage
 						alt="Andrew Parris"
 						height={300}
-						src="../../data/images/me.jpg"
+						src="../../assets/images/me.jpg"
 						width={300}
 					/>
 				</Flex>

@@ -8,6 +8,19 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-image`,
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				icon: 'src/assets/images/logo.png',
+				name: `ADParris`,
+				short_name: `ADParris`,
+				start_url: `/`,
+				background_color: `#ececec`,
+				theme_color: `#ececec`,
+				display: `minimal-ui`,
+			},
+		},
+		`gatsby-plugin-offline`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-sharp`,
 		{
