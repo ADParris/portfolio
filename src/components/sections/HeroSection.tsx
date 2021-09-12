@@ -1,16 +1,19 @@
 import React from 'react';
 
-import { Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { Sizes } from '@data/constants';
 import { setSize, useColors } from '@utils';
 
+import { CustomButton } from '@components/common';
 import { SectionContainer } from './SectionContainer';
 
 interface IComponentProps {
 	name: string;
 }
+
+const handleContactClick = () => window.open('mailto:andrew@adparris.com');
 
 export const HeroSection: React.FC<IComponentProps> = ({ name }) => {
 	const { normalHighlightColor, secondaryTextColor } = useColors();
@@ -59,6 +62,16 @@ export const HeroSection: React.FC<IComponentProps> = ({ name }) => {
 				I'm a self-taught software engineer looking for the right company
 				to begin my career, creating exceptional experiences on the web.
 			</Text>
+			<Flex
+				as={motion.div}
+				justifyContent="center"
+				mt={setSize(Sizes.gap)}
+				variants={variants}
+			>
+				<CustomButton onClick={handleContactClick}>
+					<Text>Get In Touch</Text>
+				</CustomButton>
+			</Flex>
 		</SectionContainer>
 	);
 };

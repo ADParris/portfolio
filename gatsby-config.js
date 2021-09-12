@@ -58,6 +58,7 @@ module.exports = {
 		author: `Andrew Parris`,
 		description: `Andrew Parris is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.`,
 		email: `andrew@adparris.com`,
+		image: '/og.png',
 		navLinks: [`about`, `experience`, `work`, `contact`],
 		repo: `https://github.com/ADParris/portfolio`,
 		socials: [

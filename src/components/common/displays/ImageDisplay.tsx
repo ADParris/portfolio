@@ -58,10 +58,9 @@ export const ImageDisplay: React.FC<IComponentProps> = ({
 					>
 						<Text
 							color={normalHighlightColor}
-							fontFamily="Roboto Mono"
+							fontFamily="Gruppo"
 							lineHeight={1.1}
 							pb={setSize(0.24)}
-							style={{ wordSpacing: `-${setSize(0.5)}` }}
 						>
 							{title}
 						</Text>
