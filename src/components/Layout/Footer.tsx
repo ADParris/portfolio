@@ -24,7 +24,8 @@ export const Footer: React.FC<IComponentProps> = ({
 		},
 	} = useStaticQuery(query);
 
-	const { hoverHighlightColor, secondaryTextColor } = useColors();
+	const { hoverHighlightColor, normalHighlightColor, secondaryTextColor } =
+		useColors();
 
 	return (
 		<Flex
@@ -49,27 +50,28 @@ export const Footer: React.FC<IComponentProps> = ({
 				{!isLargeScreen && (
 					<Socials isLargeScreen={isLargeScreen} socials={socials} />
 				)}
-				<Link
-					href={repo}
-					isExternal
-					mt={isLargeScreen ? 'initial' : setSize(0.5)}
-				>
-					<Text
-						_hover={{ color: hoverHighlightColor }}
-						fontFamily="Gruppo"
-						fontSize="0.9em"
-						fontWeight="bold"
-					>
-						{`Built with 💖 by ${author}`}
-					</Text>
-				</Link>
 				<Text fontFamily="Gruppo" fontSize="0.9em" fontWeight="bold">
-					General layout idea by&nbsp;
+					Original design by&nbsp;
 					<Link
 						_hover={{ color: hoverHighlightColor }}
-						href="https://brittanychiang.com/"
+						color={normalHighlightColor}
+						href="https://brittanychiang.com"
+						isExternal
 					>
 						Brittany Chiang
+					</Link>
+					.
+				</Text>
+				<Text fontFamily="Gruppo" fontSize="0.9em" fontWeight="bold">
+					Re-engineered and built by&nbsp;
+					<Link
+						_hover={{ color: hoverHighlightColor }}
+						color={normalHighlightColor}
+						href={repo}
+						isExternal
+						mt={isLargeScreen ? 'initial' : setSize(0.5)}
+					>
+						{author}
 					</Link>
 					.
 				</Text>

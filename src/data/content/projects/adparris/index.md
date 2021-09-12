@@ -1,4 +1,5 @@
 ---
+additional: './note.md'
 id: 1
 imageDark: './adparris-dark.png'
 imageLight: './adparris-light.png'
