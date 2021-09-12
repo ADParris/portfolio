@@ -59,7 +59,7 @@ export const HeroSection: React.FC<IComponentProps> = ({ name }) => {
 				mt={setSize(Sizes.gap)}
 				variants={variants}
 			>
-				I'm a self-taught software engineer looking for the right company
+				I'm a self-taught software developer looking for the right company
 				to begin my career, creating exceptional experiences on the web.
 			</Text>
 			<Flex
