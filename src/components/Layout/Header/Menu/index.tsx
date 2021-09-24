@@ -11,7 +11,7 @@ import {
 	IconButton,
 	useDisclosure,
 } from '@chakra-ui/react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
 import { FiMenu } from 'react-icons/fi';
 
 import { Sizes } from '@data/constants';
@@ -25,7 +25,9 @@ interface IComponentProps {
 	isLargeScreen: boolean;
 }
 
-export const Menu: React.FC<IComponentProps> = ({ isLargeScreen }) => {
+export const Menu: React.FC<IComponentProps> = ({
+	isLargeScreen,
+}) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const { normalHighlightColor } = useColors();
 	const {
@@ -34,6 +36,13 @@ export const Menu: React.FC<IComponentProps> = ({ isLargeScreen }) => {
 		},
 	} = useStaticQuery(query);
 	const btnRef = React.useRef<HTMLButtonElement>(null);
+
+	const handleClose = (path: string) => {
+		onClose();
+		if (path) {
+			navigate(`/#${path}`);
+		}
+	};
 
 	const _buildNavLinks = () =>
 		navLinks.map((link: string, index: number) => (
